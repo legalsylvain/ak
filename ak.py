@@ -16,7 +16,7 @@ OPENRPCFG = 'etc/openerp.cfg'
 
 
 class Ak(cli.Application):
-    PROGNAME = "ak"
+    PROGNAME = "marcel"
     VERSION = "1.0"
 
     dryrunFlag = cli.Flag(["dry-run"], help="Dry run mode")
@@ -98,7 +98,7 @@ class AkBuild(cli.Application):
     def main(self, *args):
         True
 
-# TODO: is it really ak's job to install buildout ? why not pgsql also ?
+# TODO: is it really marcel's job to install buildout ? why not pgsql also ?
 #        if not self.is_installed():
 #            if cli.terminal.ask(
 #                "Buildout not found. Download it ?", default="Y"):
@@ -230,7 +230,7 @@ for user in session.registry('res.users').browse(session.cr, 1, user_ids):",
     user.write({'password': '%s' })",
 session.cr.commit()
 """ % (self.db, new_pass)
-        print local['echo'][code] | local['ak']['console']
+        print local['echo'][code] | local['marcel']['console']
         # TODO: run this command and test it !
 
     def determine_db(self):
