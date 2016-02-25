@@ -15,7 +15,7 @@ BUILDOUT_URL = ('https://raw.github.com/buildout/'
 OPENRPCFG = 'etc/openerp.cfg'
 
 
-class Ak(cli.Application):
+class Marcel(cli.Application):
     PROGNAME = "marcel"
     VERSION = "1.0"
 
@@ -51,8 +51,8 @@ class Ak(cli.Application):
             return 1
 
 
-@Ak.subcommand("run")
-class AkRun(cli.Application):
+@Marcel.subcommand("run")
+class MarcelRun(cli.Application):
     """Start openerp."""
 
     db = cli.SwitchAttr(["d"], str, help="Database")
@@ -78,8 +78,8 @@ class AkRun(cli.Application):
         return self.parent.log_and_exec(command, params, local.env)
 
 
-@Ak.subcommand("build")
-class AkBuild(cli.Application):
+@Marcel.subcommand("build")
+class MarcelBuild(cli.Application):
     "Build dependencies for odoo"
 
     freezeFlag = cli.Flag(
@@ -118,8 +118,8 @@ class AkBuild(cli.Application):
 #        print "c bon"
 
 
-@Ak.subcommand("db")
-class AkDb(cli.Application):
+@Marcel.subcommand("db")
+class MarcelDb(cli.Application):
     """Db tools.
 
     Run without args to get a psql prompt
@@ -275,4 +275,4 @@ session.cr.commit()
             self.psql()
 
 if __name__ == "__main__":
-    Ak.run()
+    Marcel.run()
